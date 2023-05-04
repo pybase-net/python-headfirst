@@ -82,3 +82,15 @@
 - Create Landing Page with NextJS
 - Create API with Flask
 - Setup CI/CD and infrastructure
+
+## References
+
+- [Python format numbers, string, zero padding](https://queirozf.com/entries/python-number-formatting-examples)
+- [Currency](https://pypi.org/project/Babel/)
+- [Localization](https://docs.python.org/3/library/locale.html#module-locale)
+
+## Cheatsheet
+
+### Falsy values in Python
+
+> False, 0, 0.0, "", [], (), {}, None
