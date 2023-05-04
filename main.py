@@ -1,12 +1,19 @@
 # This is a sample Python script.
 import re
 
+# Convention for naming constant in Python
+COURSE_NAME = 'Python headfirst'
+
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 
 def headfirst_data_types():
+    # Is Python case-sensitive ?: yes
+    aVariable = "aVariable"
+    avariable = "avariable"
+    print(avariable, aVariable, COURSE_NAME)
     print('# Datatypes')
     course_name = "Python headfirst"
     # string concat
