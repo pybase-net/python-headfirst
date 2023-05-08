@@ -5,7 +5,7 @@
 1. Course name: Python Headfirst
 2. Hours: 120 hours
 3. Target: Python basic concepts, flask headfirst, django headfirst
-4. Project: Build a blog with Python that support markdown syntax
+4. Project: Build a top-links application
 
 ## Basic knowledge
 
@@ -74,8 +74,11 @@
 - Multiprocessing
 - Async I/O
 
-### Phase 5: Build a blog with python that support markdown syntax
+### Phase 5: Microservices and Python
 
+### Phase 6: Build a top links application
+
+- Design services architecture: auth service, link service, crawl service
 - Design application structure
 - Design infrastructure
 - Create BackOffice with React
