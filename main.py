@@ -9,6 +9,20 @@ COURSE_NAME = 'Python headfirst'
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
+def is_prime(n):
+    # so nguyen to la so chi chia het cho chinh no
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, n, 2):
+        if n % i == 0:
+            return False
+    return True
+
+
 def headfirst_data_types():
     """ headfirst data types """
 
@@ -126,6 +140,26 @@ def headfirst_data_types():
             print('More than 3 food types', foods, food_start_index, selected_food, )
         case _:
             print('not even one', foods, food_start_index, selected_food, )
+    # loop
+    cakes = ['a', 'b', 'c', 'd', 'e']
+    for index in range(len(cakes)):
+        print(f"{index + 1}. Cake {cakes[index]}")
+    total = 0
+
+    for n in range(100):
+        total += n
+    print(f"SUM(1..{n})={total}")
+
+    counter = 1
+    while True:
+        print("Times", counter)
+        counter *= (counter + 1)
+        if counter > 100:
+            break
+
+    for n in range(100):
+        print(f"{n}") if is_prime(n) else ""
+
     # Press the green button in the gutter to run the script.
 
 
