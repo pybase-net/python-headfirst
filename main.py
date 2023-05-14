@@ -10,7 +10,7 @@ COURSE_NAME = 'Python headfirst'
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 def is_prime(n):
-    # so nguyen to la so chi chia het cho chinh no
+    """A prime number is a natural number greater than 1 that is not a product of two smaller natural numbers"""
     if n <= 1:
         return False
     if n == 2:
@@ -21,6 +21,18 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
+
+
+def hello(name='PyBase', message='Hello'):
+    """Hello user with name"""
+    return f"{message} {name}"
+
+
+def count_down(counter):
+    print(f"Count down: {counter}")
+    if counter == 0:
+        return 0
+    return count_down(counter - 1)
 
 
 def headfirst_data_types():
@@ -160,7 +172,40 @@ def headfirst_data_types():
     for n in range(100):
         print(f"{n}") if is_prime(n) else ""
 
+    for n in range(10):
+        # TODO: implement later
+        pass
+
     # Press the green button in the gutter to run the script.
+    print(hello("JSBase", "Hi"))
+    print(hello(message="Hi"))
+
+    count_down(10)
+
+    # anonymous function with lambda expressions
+    def trigger_create(value):
+        return f"CREATE:{value}"
+
+    def trigger_update(value):
+        return f"UPDATE:{value}"
+
+    def trigger_delete(value):
+        return f"DELETE:{value}"
+
+    def trigger(action, value):
+        return action(value)
+
+    actions = ['create', 'update', 'delete']
+    value = 1
+    for action in actions:
+        match action:
+            case 'create':
+                print(trigger(trigger_create, value))
+                print(trigger(lambda v: f"{action}:{v}", value))
+            case 'update':
+                print(trigger(trigger_update, 1))
+            case 'delete':
+                print(trigger(trigger_delete, 1))
 
 
 if __name__ == '__main__':

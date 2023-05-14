@@ -97,3 +97,7 @@
 ### Falsy values in Python
 
 > False, 0, 0.0, "", [], (), {}, None
+
+## Watch List
+
+- [OOP Full course for beginners](https://www.youtube.com/watch?v=Ej_02ICOIgs)
