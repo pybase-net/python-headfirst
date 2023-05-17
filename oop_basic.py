@@ -6,16 +6,24 @@ class MembershipType:
 
 
 class User:
+
     def log(self):
-        print(self)
+        print('This is user log')
 
 
 class Employee(User):
     def log(self):
         print('This is employee')
+        super().log()
+        print("-" * 10)
 
 
 class Customer(User):
+    def log(self):
+        print('This is customer')
+        super().log()
+        print("-" * 10)
+
     def __init__(self, first_name, last_name, membership_type):
         self.first_name = first_name
         self.last_name = last_name
@@ -63,3 +71,86 @@ print(c1 == c2, c1 == c3)
 Customer.print_all_customers(customers)
 
 print(customers)
+
+
+class Top:
+    pass
+
+
+class Left(Top):
+    pass
+
+
+class Right(Top):
+    pass
+
+
+class Bottom(Left, Right):
+    pass
+
+
+class Bao(object):
+
+    def __init__(self):
+        self.name = "Bao"
+
+    def hello(self):
+        print(f"this is ${self.name}")
+
+    def __str__(self):
+        return self.name
+
+
+class Keo(Bao):
+    def __init__(self):
+        self.name = "Keo"
+
+
+class Bua(Keo):
+    def __init__(self):
+        self.name = "Bua"
+
+
+class Bao(Bua):
+    def __init__(self):
+        self.name = "Bao"
+
+
+bao = Bao()
+keo = Keo()
+bua = Bua()
+
+print(bao, keo, bua)
+
+
+class Calculation:
+    @staticmethod
+    def is_prime(number):
+        # not a natural number
+        if number % 1 != 0 or number < 2:
+            return False
+        if number == 2:
+            return True
+        if number % 2 == 0:
+            return False
+        i = 3
+        while i < number:
+            if number % i == 0:
+                return False
+            i += 2
+        return True
+
+    @staticmethod
+    def generate_list_of_prime_numbers(length):
+        if length < 1:
+            return []
+        if length == 1:
+            return [3]
+        n = 1
+        limit = 100
+        list_of_numbers = []
+        while len(list_of_numbers) < length and len(list_of_numbers) < limit:
+            if Calculation.is_prime(n):
+                list_of_numbers.append(n)
+            n += 2
+        return list_of_numbers
