@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import random
+
 
 class MembershipType:
     NORMAL_MEMBER = 'normal_member'
@@ -154,3 +156,70 @@ class Calculation:
                 list_of_numbers.append(n)
             n += 2
         return list_of_numbers
+
+
+class Question:
+    ANSWERS = ("A", "B", "C", "D")
+
+    def __init__(self, question, answers, correct_answer_index):
+        question = str(question).strip()
+        assert len(question) > 0, f"Question must not be empty!"
+        self._question = question
+        self.answers = answers
+        self.correct_answer_index = correct_answer_index
+
+    @property
+    def question(self):
+        return self._question
+
+    def display_question(self):
+        display = f"{self.question}\n"
+        for answer_index in range(0, len(self.answers)):
+            display += f"{Question.ANSWERS[answer_index]}. {self.answers[answer_index]}\n"
+        print(display)
+
+    def display_answer(self):
+        print(
+            f"Correct Answer is {Question.ANSWERS[self.correct_answer_index]}.{self.answers[self.correct_answer_index]}\n")
+
+
+class Game:
+    MAX_LEVEL = 100
+
+    @classmethod
+    def start_game(cls):
+        print(f"This game has {cls.MAX_LEVEL} levels! Have fun!")
+        q = cls().generate_next_question()
+        return q
+
+    def __init__(self):
+        self.level = 0
+        self.questions = []
+
+    def generate_next_question(self):
+        self.level += 1
+        a = random.randint(0, 10 * Game.MAX_LEVEL)
+        b = random.randint(0, 10 * Game.MAX_LEVEL)
+        question = f"{a} + {b} = ?"
+        correct_answer = a + b
+        answers = [correct_answer]
+        while len(answers) < 4:
+            random_answer = random.randint(0, 2 * 10 * Game.MAX_LEVEL)
+            try:
+                if answers.index(random_answer):
+                    continue
+            except ValueError:
+                answers.append(random_answer)
+
+        random.shuffle(answers)
+        correct_answer_index = answers.index(correct_answer)
+        qu = Question(question=question, answers=answers, correct_answer_index=correct_answer_index)
+        self.questions.append(qu)
+        return qu
+
+
+game = Game()
+q = game.start_game()
+q.display_question()
+q.display_answer()
+print(f"Level: {game.level}")
